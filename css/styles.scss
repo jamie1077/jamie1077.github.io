@@ -1,0 +1,248 @@
+// Customised Bootstrap scss
+
+//standard font size 18px;
+$font-size-root: 1.125rem;
+
+//change to some color variables
+$primary: #26a9e0;
+$body-color: #58595b;
+$secondary: $body-color;
+$light: #f6f6f6;
+$accent1: #9C89B8;
+$accent2: #f2849e;
+$accent3: #7ecaf6;
+$accent4: #7bd0c1;
+$accent5: #c75b9b;
+$accent6: #ae85ca;
+
+//button variable changes
+$btn-border-radius: none;
+$input-btn-padding-x-lg: 1.5rem !default;
+$btn-padding-x: $input-btn-padding-x-lg; 
+
+//added 2 new margin and pading spacers
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  1: $spacer / 4,
+  2: $spacer / 2,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+  6: $spacer * 4.5,
+  7: $spacer * 6
+);
+
+//off canvas variable changes
+$modal-backdrop-opacity: .5 !default;
+$modal-content-bg: $body-color !default;
+$modal-backdrop-bg: white;
+
+$offcanvas-color: white;
+$offcanvas-body-backdrop-color: rgba($modal-backdrop-bg, $modal-backdrop-opacity);
+
+$transition-base: all .5s ease-in-out !default;
+
+//Import Bootstrap
+@import "../bootstrap/scss/bootstrap";
+
+//Custom styles
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+h1{
+    font-weight: bold;
+    //font-size: 2.5rem;
+}
+
+h2, h3, h4, h5{
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+img{
+    max-width: 100%;
+}
+
+.btn-secondary{
+  &:hover{
+    background-color: $primary;
+    border-color: $primary;
+  }
+}
+
+//Header Menu Link
+.btn-link{
+  width: 50px;
+  height: 56px;
+  position: relative;
+  margin: 0px;
+  padding: 1rem;
+  .bar{
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    background: $secondary;
+    &:nth-child(1){
+      top: 14px;
+    }
+    &:nth-child(2){
+      top: 24px;
+    }
+    &:nth-child(3){
+      top: 34px;
+    }
+  }
+  &:hover{
+    .bar{
+      background-color: $primary;
+    }
+  }
+}
+
+//Off Canvas Menu
+.menu{
+  li{
+    a{
+      display: block;
+      text-decoration: none;
+      margin-bottom: 1rem;
+      &:hover{
+        color: $primary!important;
+      }
+    }
+  }
+}
+
+//Portfolio Section
+.work-list{
+  .work-item{
+    transition: $transition-base;
+    position: relative;
+    a{
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: white;
+      text-decoration: none;
+      z-index: 2;
+      text-align: center;
+      p{
+        transition: $transition-base;
+        opacity: 0;
+        padding: 0 2.5rem;
+        max-height: 0;
+      }
+    }
+    .work-img{
+      transition: $transition-base;
+      position: relative;
+      display: block;
+      width: 100%;
+      border-radius: 4px;
+      overflow: hidden;
+      border-radius: 0;
+      &:before{
+        transition: $transition-base;
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        opacity: 0.8;
+      }
+    }
+    .style1:before{
+      background-color: $accent1;
+    }
+    .style2:before{
+      background-color: $accent2;
+    }
+    .style3:before{
+      background-color: $accent3;
+    }
+    .style4:before{
+      background-color: $accent4;
+    }
+    .style5:before{
+      background-color: $accent5;
+    }
+    .style6:before{
+      background-color: $accent6;
+    }
+
+    &:hover{
+      transform: scale(1.1);
+      .work-img:before{
+        background-color: $secondary;
+        opacity: 0.7;
+      }
+      a{
+        p{
+          opacity: 1;
+          max-height: 15rem;
+        }
+      }
+    }
+  }
+
+}
+
+//Footer
+.contact-list{
+  li{
+    margin-bottom: 0.5rem;
+    a{
+      display: block;
+      border: 1px solid $gray-500;
+      padding: 1rem;
+      color: $secondary;
+      &:hover{
+        border-color: $primary;
+        color: $primary;
+      }
+    }
+  }
+}
+
+//Form Control
+form{
+  .form-control{
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid $gray-500;
+    border-radius: 0;
+    &:focus{
+      background-color: transparent;
+      border-color: $primary;
+      box-shadow: none;
+    }
+  }
+}
+
+.bg-img{
+  background: url(../images/code-hero.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 200px;
+}
+
+@media screen and (min-width: 992px){
+  .bg-img{
+    height: auto;
+  }
+}
+
+
+
+
